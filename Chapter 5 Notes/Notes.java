@@ -148,7 +148,24 @@ public class Notes
         }
         else {
             System.out.println("string are equal");}
-
+        /*
+         * this is an example of a "short circut"
+         * if the left operand is false.  the right operand will not be
+         * evaluated becase the and operator
+         * 
+         * 
+         */
+        if(firstStr != null && firstStr.length()>3){
+        System.out.println("the first string has more than 3 charecters");}
+        
+        
+        /*
+         * if the lest operand is true the right operand will not be evaluated 
+         * becasue the or operation is already ture 
+         * 
+         * This may result in a bug if the first word entered is a kiwi we w
+         * will never read 
+         */
     }
 
 }
