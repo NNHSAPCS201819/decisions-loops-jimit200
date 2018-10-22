@@ -148,7 +148,7 @@ public class Notes
         }
         else {
             System.out.println("string are equal");}
-         /*
+        /*
          * This is an example a "short circuit".
          *      If the left operand is false, the right operand
          *      will not be evaluated because the AND operation
@@ -158,7 +158,7 @@ public class Notes
         {
             System.out.println("The first string has more than 3 characters.");
         }
-        
+
         /*
          * This is another "short circuit" example.
          *      If the left operand is true, the right operand will
@@ -175,9 +175,105 @@ public class Notes
         {
             System.out.println("Kiwi is one of my favorite fruits too!");
         }
-        
+
         System.out.print("Enter your favorite ice cream flavor.");
         String flavor = s.next();
         System.out.println("Favorite flavor " + flavor ); // could print a fruit
+
+    }
+
+    public static String getStudentClass(int gradeNumber){
+
+        /*
+         * switch satement 
+         * another conditional decision statment (like if statement)\
+         * prefered when evaluating several *discrete* values can be used for byte,
+         * short, char, int primative types. It can be used for enumaration and string
+         * objectd
+         * 
+         * The condition is evaluated, the flow of evaluation jumps to the case that matches
+         * 
+         * 
+         */
+
+        String studentClass="";
+        switch (gradeNumber)
+        {
+            case 9:
+            {
+                studentClass = "freshman";
+                /*
+                 * break causes the flow of execution to leave the switch.(without a break the flow of
+                 * execution continues into next case)
+                 */
+                break;
+            }
+            case 10:
+            {
+                studentClass = "sophomore";
+                break;
+            }
+            case 11:
+            {
+                studentClass = "junior";
+                break;
+            }
+            case 12:
+            {
+                studentClass = "senior";
+                break;
+            }
+            case 6:
+            case 7:
+            case 8:
+
+            {
+                studentClass = "junior high";
+                break;
+
+            }
+            /*
+             * deault matches everything not matches 
+             */
+            default:
+            {
+                studentClass ="elementary";
+                break;}
+        }
+        return studentClass;
+    }
+
+    public static void assignmentOperatorExample()
+    {
+        /*
+         * augmented assignment operators : +=, -=, *=, /=,%=
+         * these are same as python.
+         * perform the specified mathamatical operation and then assign the resulting value
+         */
+        int x=7;
+        int y =7;
+        int z=7;
+        x=x+1;
+        y+=1;
+        z++;
+        System.out.println("x:"+x);
+        /*
+         * post increment/ decrement operator
+         * equivalent to adding/subtracting 1 
+         * returns the value before performing the increment/decrement
+         * 
+         */
+        int a = 7;
+        int b=a++;
+        System.out.println("a:"+a+"b:"+b);//a=8 b=7
+
+        /*
+         * pre increment/ decrement operators
+         * returns the value after performing after performing the incremet/decremnet
+         */
+        int c = 7;
+        int d=++c;
+        System.out.println("c:"+c+"d:"+d);//c=8 d=8
+
     }
 }
