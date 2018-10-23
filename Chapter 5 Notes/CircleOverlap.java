@@ -23,6 +23,12 @@ public class CircleOverlap
       else if (radius2>=40+radius1 || radius1>=40+radius2){
         System.out.println("The are mutually contained");
         
+      
+        
+        }
+      else 
+      {
+        System.out.println("They are intersecting");
         }
       
    }
