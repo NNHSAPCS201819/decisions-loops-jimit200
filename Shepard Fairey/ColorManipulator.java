@@ -39,7 +39,49 @@ public class ColorManipulator
             }
         }
     }
+    
+    
+    
+    /**
+     * Sets the red component of the color of every pixel in the picture to the maximum value
+     *
+     *      An example of manipulating one component of the color of a pixel.
+     */
+    public void maxRed()
+    {
+        int width = this.picture.getWidth();
+        int height = this.picture.getHeight();
 
+        for( int y = 0; y < height; y++ )
+        {
+            for( int x = 0; x < width; x++ )
+            {
+                Pixel pixel = this.picture.getPixel( x, y );
+                pixel.setRed( 255 );
+            }
+        }
+    }
+    
+    /**
+     * Sets the green component of the color of every pixel in the picture to the maximum value
+     *
+     *      An example of manipulating one component of the color of a pixel.
+     */
+    public void maxGreen()
+    {
+        int width = this.picture.getWidth();
+        int height = this.picture.getHeight();
+
+        for( int y = 0; y < height; y++ )
+        {
+            for( int x = 0; x < width; x++ )
+            {
+                Pixel pixel = this.picture.getPixel( x, y );
+                pixel.setGreen( 255 );
+            }
+        }
+    }
+    
     /**
      * Negates the color of every pixel in the picture
      *
@@ -66,14 +108,22 @@ public class ColorManipulator
             }
         }
     }
-
+    /**
+     * Greyscales the image
+     *
+     *      An example of manipulating the color of a pixel using a Color object
+     */
+    public void greyScale()
+    {
+        
+    }
     public static void main(String args[])
     {
-    	// the selfie image must be in the Shepard Fairey folder
+        // the selfie image must be in the Shepard Fairey folder
         Picture picture= new Picture( "selfiePortrait.jpg" );
         ColorManipulator manipulator = new ColorManipulator( picture );
         picture.explore();
-        manipulator.negate();
+        manipulator.maxRed();
         picture.explore();
     }
 }
