@@ -39,4 +39,30 @@ public class ColorManipulatorTest
     public void tearDown()
     {
     }
+    @Test
+    public void testGreyScale(){
+        Picture picture= new Picture( "selfiePortrait.jpg" );
+        ColorManipulator manipulator = new ColorManipulator( picture );
+        manipulator.greyScale();
+        
+        Pixel pixel = picture.getPixel(0, 0 );
+        Color color = pixel.getColor();
+        assertEquals(97, color.getRed());
+        assertEquals(97, color.getGreen());
+        assertEquals(97, color.getBlue());
+        
+        
+        
+        pixel = picture.getPixel(531, 797 );
+        color = pixel.getColor();
+        assertEquals(77, color.getRed());
+        assertEquals(77, color.getGreen());
+        assertEquals(77, color.getBlue());
+        
+        pixel = picture.getPixel(314, 694 );
+        color = pixel.getColor();
+        assertEquals(37, color.getRed());
+        assertEquals(37, color.getGreen());
+        assertEquals(37, color.getBlue());
+    }
 }
