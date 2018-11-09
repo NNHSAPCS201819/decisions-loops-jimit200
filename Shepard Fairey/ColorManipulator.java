@@ -115,7 +115,23 @@ public class ColorManipulator
      */
     public void greyScale()
     {
-        
+        int width = this.picture.getWidth();
+        int height = this.picture.getHeight();
+
+        for( int y = 0; y < height; y++ )
+        {
+            for( int x = 0; x < width; x++ )
+            {
+                Pixel pixel = this.picture.getPixel( x, y );
+                Color color = pixel.getColor();
+                
+                int grey= color.getRed()+color.getBlue()+color.getGreen();
+                // int division so the decimal gets truncated
+                grey = grey/3;
+                Color greyed = new Color( grey, grey, grey );
+                pixel.setColor( greyed );
+            }
+        }
     }
     public static void main(String args[])
     {
@@ -123,7 +139,7 @@ public class ColorManipulator
         Picture picture= new Picture( "selfiePortrait.jpg" );
         ColorManipulator manipulator = new ColorManipulator( picture );
         picture.explore();
-        manipulator.maxRed();
+        manipulator.greyScale();
         picture.explore();
     }
 }

@@ -26,14 +26,17 @@ public class ShepardFairey
      */
     public void transform()
     {
-        
+       manipulator.greyScale();
+       
+       
+       
     }
 
     public static void main(String args[])
     {
         // create a new picture object based on the original selfie
         //  (the selfie image must be in the Shepard Fairey folder)
-        Picture selfie = new Picture( "selfiePortrait.jpg" );
+        Picture selfie = new Picture( "compscipic.jpg" );
 
         // create a ShepardFairey object to transform the selfie picture
         ShepardFairey fairey = new ShepardFairey( selfie );
