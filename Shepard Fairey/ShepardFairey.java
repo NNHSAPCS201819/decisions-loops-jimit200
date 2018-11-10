@@ -9,14 +9,16 @@ import java.awt.Color;
 public class ShepardFairey
 {
     private ColorManipulator manipulator;
-
+    private Picture picture;
     private static final Color OFF_WHITE = new Color( 248, 229, 175 );
     private static final Color LIGHT_BLUE = new Color( 121, 149, 159 );
     private static final Color RED = new Color( 198, 50, 45 );
     private static final Color DARK_BLUE = new Color( 16, 48, 77 );
 
     public ShepardFairey( Picture newPicture )
+
     {
+        picture=newPicture;
         this.manipulator = new ColorManipulator( newPicture );
     }
 
@@ -26,10 +28,29 @@ public class ShepardFairey
      */
     public void transform()
     {
-       manipulator.greyScale();
-       
-       
-       
+        manipulator.greyScale();
+        int width = this.picture.getWidth();
+        int height = this.picture.getHeight();
+        int max=0;
+        int min=255;
+        for( int y = 0; y < height; y++ )
+        {
+            for( int x = 0; x < width; x++ )
+            {
+                Pixel pixel = this.picture.getPixel( x, y );
+                Color color = pixel.getColor();
+                int grey = color.getRed();
+                if (grey>max){
+                    max=grey;
+                }
+                if (grey<min){
+                    min=grey;
+                }
+            }
+        }
+        int range = max-min;
+        range/=4;
+        manipulator.posterize(range,min, OFF_WHITE, LIGHT_BLUE,RED, DARK_BLUE);
     }
 
     public static void main(String args[])
@@ -46,21 +67,22 @@ public class ShepardFairey
 
         // transform the selfie picture by applying a Shepard Fairey-inspired effect
         fairey.transform();
+        selfie.explore();
 
         // save the transformed selfie picture
-        
+
         /* This code doesn't work for some students for unknown reasons.
          * You may need to specify an absolute path. For example:
          *  finalPic.write("C:\\Users\\gschmit\\GitHub\\decisions-loops-gcschmit\\Shepard Fairey\\MrSchmitPortrait.jpg");
          */
-        selfie.write( "MrSchmitPortrait.jpg" );
-        
-        // repeat the steps for the selfie in landscape orientation
-        selfie = new Picture( "selfieLandscape.jpg" );
+        selfie.write( "JimitGosarLandscape.jpg" );
+
+        // repeat the steps for the selfie in portrait orientation
+        selfie = new Picture( "portrait.jpg" );
         fairey = new ShepardFairey( selfie );
         selfie.explore();
         fairey.transform();
-        selfie.write( "MrCallaghanLandscape.jpg" );
+        selfie.write( "JimitGosarProtrait.jpg" );
 
         // display the transformed selfie picture
         selfie.explore();
