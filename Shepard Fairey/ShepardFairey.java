@@ -11,9 +11,9 @@ public class ShepardFairey
     private ColorManipulator manipulator;
     private Picture picture;
     private static final Color OFF_WHITE = new Color( 248, 229, 175 );
-    private static final Color LIGHT_BLUE = new Color( 121, 149, 159 );
+    private static final Color YELLOW = new Color(255,203,16);//( 121, 149, 159 );
     private static final Color RED = new Color( 198, 50, 45 );
-    private static final Color DARK_BLUE = new Color( 16, 48, 77 );
+    private static final Color BLACK = new Color(0,0,0);//( 16, 48, 77 );
 
     public ShepardFairey( Picture newPicture )
 
@@ -50,7 +50,7 @@ public class ShepardFairey
         }
         int range = max-min;
         range/=4;
-        manipulator.posterize(range,min, OFF_WHITE, LIGHT_BLUE,RED, DARK_BLUE);
+        manipulator.posterize(range,min, OFF_WHITE, YELLOW,RED, BLACK);
     }
 
     public static void main(String args[])
@@ -75,14 +75,14 @@ public class ShepardFairey
          * You may need to specify an absolute path. For example:
          *  finalPic.write("C:\\Users\\gschmit\\GitHub\\decisions-loops-gcschmit\\Shepard Fairey\\MrSchmitPortrait.jpg");
          */
-        selfie.write( "JimitGosarLandscape.jpg" );
+        selfie.write( "C:\\Users\\jjgosar\\GitHub\\decisions-loops-jimit200\\Shepard Fairey\\JimitGosarLandscape.jpg" );
 
         // repeat the steps for the selfie in portrait orientation
         selfie = new Picture( "portrait.jpg" );
         fairey = new ShepardFairey( selfie );
         selfie.explore();
         fairey.transform();
-        selfie.write( "JimitGosarProtrait.jpg" );
+        selfie.write( "C:\\Users\\jjgosar\\GitHub\\decisions-loops-jimit200\\Shepard Fairey\\JimitGosarProtrait.jpg" );
 
         // display the transformed selfie picture
         selfie.explore();
